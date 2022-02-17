@@ -4,12 +4,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Ayurveda</title>
+    <title>Ayurveda </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
     
@@ -25,7 +25,88 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  	<?php
+	  if (!isset($_SESSION["language"])) {
+		  ?>
+		<script>
+		$(document).ready(function(){
+		$("#myModal").modal('show');
+		});
+		</script> 
+		<?php
+	  }
+	  ?>
+	
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300"> 
+  <!-- <div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ayurveda</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+				<p>Select your Language</p>
+				<a href="language.php?language=eng" class="btn btn-success">English</a>
+				<a href="language.php?language=dut" class="btn btn-primary">Deutsch</a>
+            </div>
+        </div>
+    </div>
+</div> -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDiscount">Launch
+  modal</button>
+
+    <!--Modal: modalDiscount-->
+    <div class="modal fade right" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true" data-backdrop="true">
+      <div class="modal-dialog modal-side modal-bottom-right modal-notify modal-danger" role="document">
+        <!--Content-->
+        <div class="modal-content">
+          <!--Header-->
+          <div class="modal-header">
+            <div class="text-center">
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="false" class="white-text">&times;</span>
+            </button>
+			<div class="img-responsive">
+					<p class="text-center">Welcome to</p>
+                  <img src="/ayurvedic-nilaveli-resort.kodplex.com/images/img_36.jpg"  style="width:50%">
+			</div>  
+			</div>
+          </div>
+
+          <!--Body-->
+          <div class="modal-body">
+
+            <div class="row">
+              <div class="col-3">
+                <p></p> 
+              </div>
+              <div class="col-6">
+                <p class="text-center">
+                  <strong>Select Your Language</strong>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!--Footer-->
+          <div class="col text-center" style="padding: 1rem;">
+            <a href="language.php?language=dut" class="btn btn-danger">Deutsch
+              
+              <i class="far fa-gem ml-1 white-text"></i>
+            </a>
+            <a href="language.php?language=eng" class="btn btn-outline-danger waves-effect" >English</a>
+          </div>
+        </div>
+        <!--/.Content-->
+      </div>
+    </div>
+    <!--Modal: modalDiscount-->
   	<div class="py-1 bg-black top">
     	<div class="container">
     		<div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
@@ -47,7 +128,7 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.php" img src="{images/img_1.jpg'}">Ayurveda</a>
+	      <a class="navbar-brand" href="index.php">Nilaveli Ayurvedic Resort</a>
 			<button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="oi oi-menu"></span> Menu
 			</button>
@@ -59,7 +140,11 @@
 					<li class="nav-item"><a href="#department-section" class="nav-link"><span>Services</span></a></li>
 					<li class="nav-item"><a href="#blog-section" class="nav-link"><span>Blog</span></a></li>
 					<li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
-					<li class="nav-item cta mr-md-2"><a href="appointment.php" class="nav-link">Appointment</a></li>
+					<li class="nav-item cta mr-md-2">
+						<button type="button" class="btn btn-primary btn-flat" data-toggle="modal" data-target="#myModal">Select Language</button>
+					</li>
+					
+					                     
 				</ul>
 			</div>
 	    </div>
@@ -72,7 +157,7 @@
 			<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
 				<div class="col-md-6 pt-5 ftco-animate">
 					<div class="mt-5">
-						<span class="subheading"><?php content("home-msg1"); ?></span>
+						<span class="subheading"><?php content("home-msg1");?></span>
 						<h1 class="mb-4"><?php content("home-msg2"); ?>
 						<p class="mb-4"><?php content("home-msg3"); ?></p>
 						<p><a href="#" class="btn btn-primary py-3 px-4">Make an appointment</a></p>

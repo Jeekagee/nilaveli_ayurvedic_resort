@@ -1,4 +1,5 @@
 <?php
+session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -15,6 +16,19 @@ function content($name) {
     $sql = "SELECT * FROM content WHERE name='$name' LIMIT 1";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
-    echo $row["content_eng"];
-  }
+    if (isset($_SESSION["language"])) {
+        if ($_SESSION["language"] =="eng") {
+          echo $row["content_eng"];
+        }
+        else{
+          echo $row["content_dut"];
+        }
+    }
+    else{
+       
+        echo $row["content_dut"];
+      
+    }
+    
+   }
 ?>
